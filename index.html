@@ -107,7 +107,16 @@
             ggPoint = new BMap.Point(Longitude,Latitude);
             //刷新地图？
             pointArr.push(ggPoint);
-            convertor.translate(pointArr, 1, 5, translateCallback)
+            convertor.translate(pointArr, 1, 5, translateCallback);
+            
+            //构建全景组件
+            bm.centerAndZoom(ggPoint, 12);
+            bm.enableScrollWheelZoom(true);
+            // 覆盖区域图层测试
+            bm.addTileLayer(new BMap.PanoramaCoverageLayer());
+            var stCtrl = new BMap.PanoramaControl(); //构造全景控件
+            stCtrl.setOffset(new BMap.Size(20, 20));
+            bm.addControl(stCtrl);//添加全景控件
         }
         //定位功能使用失败
         function showError(error){
