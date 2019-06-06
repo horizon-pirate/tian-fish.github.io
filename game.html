@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>Full Screen Mario</title>
+
+    <link href="mario.css" rel="stylesheet">
+    <link href="Fonts/stylesheet.css" rel="stylesheet">
+
+    <script src="data.js"></script>
+    <script src="editor.js"></script>
+    <script src="events.js"></script>
+    <script src="generator.js"></script>
+    <script src="library.js"></script>
+    <script src="load.js"></script>
+    <script src="maps.js"></script>
+    <script src="mario.js"></script>
+    <script src="quadrants.js"></script>
+    <script src="sounds.js"></script>
+    <script src="sprites.js"></script>
+    <script src="things.js"></script>
+    <script src="toned.js"></script>
+    <script src="triggers.js"></script>
+    <script src="upkeep.js"></script>
+    <script src="utility.js"></script>
+    <script src="gamepad.js"></script>
+<style>
+
+.imgLogo{
+    display:inline-block;
+    margin-top: 9%;
+    margin-left: 35%;
+    background:url(resource/googlelogo.png) no-repeat!important;
+    background-size:272px 92px!important;height:92px!important;width:272px!important ;
+
+}
+
+/* reset webkit search input browser style */
+input {
+    outline: none;
+}
+input[type=search] {
+    background: #ededed url(resource/search-icon.png) no-repeat 9px center;
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none; /* remove the search and cancel icon */
+}
+
+/* search input field */
+input[type=search] {
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 500px;
+    margin-left: 18%;
+    margin-top: 20px;
+
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+input[type=search]:focus {
+    width: 500px;
+    background-color: #fff;
+    border-color: #6dcff6;
+    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+/* placeholder */
+input:-moz-placeholder {
+    color: #999;
+}
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+#search{
+	position:absolute;
+	z-index: 5;
+	margin: 0px 30%;
+}
+</style>
+</head>
+<body onload="FullScreenMario()">
+	 <div id="search">
+	  <div class="imgLogo"></div>
+	  <div class="s_form_wrapper">
+	   <form id="form" name='f' action="https://www.baidu.com/s">
+		<input type="search" name='wd' id="wd_infos" placeholder="Search">
+	   </form>
+	  </div>
+	</div>
+<script type="text/javascript">
+    //点击图片
+    function imgClick() {
+         document.getElementById("wd_infos").value = '今日新鲜事';
+         document.getElementById("form").submit();
+    };
+    //捕捉search框键盘回车事件
+    document.getElementById("wd_infos").onkeydown = function(e) {
+        //捕捉回车事件
+        var ev = (typeof event!= 'undefined') ? window.event : e;
+        if(ev.keyCode == 13 && this.value == '' ) {
+            document.getElementById("wd_infos").value = '今日新鲜事';
+        }
+    }
+</script>
+</body>
+</html>
