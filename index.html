@@ -1,126 +1,251 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>随心搜索</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>duning 搜索</title>
+  <style>
+    /*改变进度条*/
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 10px;
+        background-color: rgba(243, 235, 233, 0);
+    }
+    ::-webkit-scrollbar-track {
+        background-color: rgba(240, 220, 220, 0.8);
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        /* Firefox 4 */
+        -webkit-transition: all 0.4s ease;
+        /* Safari 和 Chrome */
+        -o-transition: all 0.4s ease;
+        /* Opera */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        border-radius: 3px;
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        /* Firefox 4 */
+        -webkit-transition: all 0.4s ease;
+        /* Safari 和 Chrome */
+        -o-transition: all 0.4s ease;
+        /* Opera */
+    }
+    body {
+        color: #666;
+        font: 85%/140% Arial, Helvetica, sans-serif;
+        width: 800px;
+        max-width: 96%;
+        margin: 0 auto;
+        background: transparent url(https://s10.postimg.cc/jkg1hkkcp/mario_gif_by_ivanrussiansky_d9f6x59.gif) center center  fixed !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+  </style>
+</head>
+<body class="hp vasq big" id="gsr">
 <style>
 
-body {
-    color: #666;
-    font: 85%/140% Arial, Helvetica, sans-serif;
-    width: 800px;
-    max-width: 96%;
-    margin: 0 auto;
-    background: transparent url(https://s10.postimg.cc/jkg1hkkcp/mario_gif_by_ivanrussiansky_d9f6x59.gif) center center  fixed !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-}
+  .big {
+    padding-left: 13px;
+    padding-right: 12px
+  }
+
+  .gsfi {
+    font-weight: bold;
+    font: 18px arial, sans-serif;
+    line-height: 34px;
+    height: 34px !important
+  }
+
+  .tsf {
+    background: none
+  }
+
+  #searchform {
+    width: 52%
+  }
+
+  .hp #searchform {
+    position: absolute;
+    top: 170px
+  }
+
+  .srp #searchform {
+    position: absolute;
+    top: 20px
+  }
 
 .imgLogo{
     display:inline-block;
-    margin-top: 20%;
-    margin-left: 35%;
+    margin-top: -25px;
+    margin-left: 260px;
+    margin-bottom: 30px;
     background:url(https://s24.postimg.cc/yotenw01x/googlelogo.png) no-repeat!important;
     background-size:272px 92px!important;height:92px!important;width:272px!important ;
-
 }
-
-/* reset webkit search input browser style */
-input {
-    outline: none;
-}
-input[type=search] {
-    -webkit-appearance: textfield;
-    -webkit-box-sizing: content-box;
-    font-family: inherit;
-    font-size: 100%;
-}
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button {
-    display: none; /* remove the search and cancel icon */
-}
-
-/* search input field */
-input[type=search] {
-    border: solid 1px #ccc;
-    padding: 9px 10px 9px 32px;
-    width: 500px;
-    margin-left: 15%;
-    margin-top: 20px;
-
-    -webkit-border-radius: 10em;
-    -moz-border-radius: 10em;
-    border-radius: 10em 0em 0em 10em;
-
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    transition: all .5s;
-}
-input[type=search]:focus {
-    width: 500px;
-    background-color: #fff;
-    border-color: #6dcff6;
-    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-    box-shadow: 0 0 5px rgba(109,207,246,.5);
-}
-
-/* placeholder */
-input:-moz-placeholder {
-    color: #999;
-}
-input::-webkit-input-placeholder {
-    color: #999;
-}
-
-/* demo B */
-#demo-b .sub {
-    background: #ededed url(resource/search-icon.png) no-repeat 9px center;
-    border: solid 1px #ccc;
-    border-radius: 0em 10em 10em 0em;
-    border-left: 0px;
-    padding: 9px 8px 9.5px 30px;
-    margin-left: -4px;
-    width: 15px;
-    color: transparent;
-    cursor: pointer;
-    display: inline;
-}
-#demo-b .sub:hover {
-    background-color: #fff;
-    border-color: #6dcff6;
-}
-#demo-b .sub:focus {
-    width: 130px;
-    padding-left: 32px;
-    color: #000;
-    background-color: #fff;
-    cursor: auto;
-}
-#demo-b .sub:-moz-placeholder {
-    color: transparent;
-}
-#demo-b .sub::-webkit-input-placeholder {
-    color: transparent;
-}
-
 </style>
+<div class="ctr-p" id="viewport">
+  <div class="jhp big" id="searchform">
+    <form id="form" class="tsf nj" name="f" action="https://www.baidu.com/s">
+      <div class="imgLogo" onclick="imgClick()"></div>
+      <div>
+        <div class="A8SBwf">
+          <style>.A8SBwf {
+            position: relative;
+            margin: 0 auto;
+            padding-left: 12px;
+            padding-top: 6px;
+            width: 484px;
+          }
 
-</head>
-<body>
-  <div class="imgLogo" onclick="imgClick()"></div>
-  <div class="s_form_wrapper">
-   <form id="form" name="f" action="https://www.baidu.com/s">
-    <input type="search" name='wd' id="wd_infos" placeholder="Search">
-    <span id="demo-b">
-        <div class="sub" placeholder="Search" onclick="btnClick()"></div>
-    </span>
-   </form>
+          #searchform .big .A8SBwf {
+            width: 584px
+          }
+
+          .RNNXgb {
+            background: #fff;
+            display: flex;
+            border: 1px solid #dfe1e5;
+            box-shadow: none;
+            border-radius: 24px;
+            z-index: 3;
+            height: 44px;
+            margin: 0 auto;
+            width: 584px;
+          }
+
+          .minidiv .RNNXgb {
+            height: 32px;
+            border-radius: 16px;
+            margin: 10px 0 0
+          }
+
+          .emcav .RNNXgb {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: rgba(223, 225, 229, 0);
+            box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28)
+          }
+
+          .minidiv .emcav .RNNXgb {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0
+          }
+
+          .emcav .emcat .RNNXgb {
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px
+          }
+
+          .minidiv .emcav.emcat .RNNXgb {
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px
+          }
+
+          .RNNXgb:hover {
+            box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+            border-color: rgba(223, 225, 229, 0);
+          }
+
+          #searchform .big .RNNXgb {
+            width: 582px
+          }
+
+          .SDkEP {
+            flex: 1;
+            display: flex;
+            padding: 5px 8px 0 20px;
+            width: 582px;
+          }
+          </style>
+          <div class="RNNXgb">
+            <div class="SDkEP">
+              <div class="a4bIc">
+                <style>
+                  .gLFyf {
+                    background-color: transparent;
+                    border: none;
+                    padding: 0;
+                    color: rgba(0, 0, 0, .87);
+                    word-wrap: break-word;
+                    outline: none;
+                    display: flex;
+                    flex: 100%;
+                    -webkit-tap-highlight-color: transparent;
+                    margin-top: -37px;
+                  }
+
+                  .a4bIc {
+                    display: flex;
+                    flex: 1;
+                    flex-wrap: wrap
+                  }
+
+                  .vdLsw {
+                    color: transparent;
+                    flex: 100%;
+                    white-space: pre
+                  }
+
+                </style>
+                <div class="vdLsw gsfi"></div>
+                <input type="text" id="wd_infos" class="gLFyf gsfi" name="wd" maxlength="2048" aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" role="combobox" spellcheck="false" title="duning 搜索" value="" aria-label="搜索" />
+              </div>
+              <div class="dRYYxd">
+                <style>
+                  .dRYYxd {
+                    display: flex;
+                    flex: 0 0 auto;
+                    margin-top: -5px;
+                    align-items: stretch;
+                    flex-direction: row;
+                  }
+                  .JC0tCe {
+                    flex: 1 0 auto;
+                    display: flex;
+                    cursor: pointer;
+                    align-items: center;
+                    border: 0;
+                    background: transparent;
+                    outline: none;
+                    padding: 0 8px;
+                    width: 24px;
+                    line-height: 44px
+                  }
+
+                  .hb2Smf {
+                    background: url('./images/googlemic_color_24dp.png') 0 0 no-repeat;
+                    height: 24px;
+                    width: 24px;
+                    background-size: 24px;
+                    vertical-align: middle
+                  }
+
+                </style>
+                <div class="JC0tCe" aria-label="按语音搜索" role="button" tabindex="0">
+                  <span id="spanShow" class="hb2Smf" onclick="spanClick()"></span>
+                </div>
+                <div id="showDiv" style="background: rgb(45, 45, 45); border: 1px solid rgb(255, 255, 255); color: rgb(255, 255, 255); display: none; font-size: 11px; font-weight: bold; height: 29px; left: 530px; line-height: 29px; padding: 0px 10px; position: absolute; text-align: center; top: 56px; white-space: nowrap; visibility: visible; z-index: 2000; box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px; box-sizing: border-box; transition: opacity 0.13s ease 0s;">
+                  请点击搜索
+                  <div style="border-width: 0px 6px 6px; border-style: solid; border-image: initial; border-color: rgb(255, 255, 255) transparent; display: block; font-size: 0px; height: 0px; line-height: 0; position: absolute; top: -6px; width: 0px; left: 31.6667px;">
+                    <div style="border-width: 0px 6px 6px; border-style: solid; border-image: initial; border-color: rgb(45, 45, 45) transparent;  display: block; font-size: 0px; height: 0px; line-height: 0; position: absolute; top: 1px; width: 0px; left: -6px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <div>
-  </div>
-  <script type="text/javascript">
+</div>
+<script type="text/javascript">
     //点击图片
     function imgClick() {
          document.getElementById("wd_infos").value = '今日新鲜事';
@@ -135,7 +260,18 @@ input::-webkit-input-placeholder {
             document.getElementById("wd_infos").value = '今日新鲜事';
         }
     }
-    function btnClick(){
+
+    //语音图标移入移出
+    var set = document.getElementById('spanShow');
+    set.onmouseover = function (){
+        document.getElementById("showDiv").style.display = "block";
+    }
+    set.onmouseout = function (){
+        document.getElementById("showDiv").style.display = "none";
+    }
+
+    //点击事件收索
+    function spanClick(){
         var value = document.getElementById("wd_infos").value;
         if(''==value || value == null){
             document.getElementById("wd_infos").value = '今日新鲜事';
@@ -145,5 +281,4 @@ input::-webkit-input-placeholder {
 
 </script>
 </body>
-
 </html>
